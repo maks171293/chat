@@ -1,0 +1,463 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.header {
+  position: relative;
+  width: 100%;
+  background-color: hsl(0, 4%, 91%);
+  z-index: 10;
+}
+
+.menu-button{
+  position: absolute;
+  margin: 0;
+  left: 20px;
+  top: 15px;
+  display: inline-block;
+  font-size: 30px;
+}
+
+.menu{
+  display: inline-block;
+  text-align: left;
+  padding-bottom: 5px;
+}
+
+.header-title{
+  display: inline-block;
+}
+
+.header-reload{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  display: inline-block;
+  margin: 0;
+  font-size: 40px;
+  transform: scale(1, -1) rotate(230deg);
+}
+
+.agent-img{
+    width: 140px;
+    height: 140px;
+    margin: 0 auto;
+    background-image: url(https://c1.staticflickr.com/2/1632/24704515719_3a89353ffa_b.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.body {
+  height: 80vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.agent-profile{
+  margin-top: 190px;
+}
+
+.agent-desc{
+  font-size: 14px;
+}
+
+.agent-name{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.agent-rating{
+  color: purple;
+}
+
+.agent-chat-image{
+    width: 40px;
+    display: inline-block;
+    height: 40px;
+    background-image: url(https://c1.staticflickr.com/2/1632/24704515719_3a89353ffa_b.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.chat-container{
+  width: 100%;
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.chat-container .chats {
+  box-sizing: border-box;
+  padding: 0 20px;
+  margin: 10px 0 0;
+  /* height: 510px; */
+  /* overflow-y: scroll; */
+}
+
+.chat-container .chats .chat {
+  background: rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding: 0 15px ;
+  font-size: 14px;
+  border-radius: 20px 20px 20px 20px;
+  list-style: none;
+  color: grey;
+  float: left;
+  clear: both;
+  text-align: left;
+  margin: 10px 0;
+  margin-left: 20px;
+  margin-right: 30px;
+  max-width: 270px;
+  transition: all .3 ease;
+}
+
+.chat-container .chats .user-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 10px;
+  left: -30px;
+}
+
+.chat-container .chats .chat.right {
+  float: right;
+  clear: both;
+  margin-right: 30px;
+  margin-left: 30px;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.chat-container .chats .chat a {
+  text-decoration: none;
+  color:#3498DB;
+}
+
+.chat-container .chats .user-image.right {
+  right: -40px;
+  left: auto;
+}
+
+/* .chat-container .chat {
+  font-family: 'Pacifico', cursive;
+  background-color: rgba(0,0,0, 0.7);
+  color: #FFF;
+  margin: 0;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+.chat-container .chats .chat.right:last-child{
+  margin: 0;
+}
+
+.message-buble{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.1);
+  animation: buble 1.5s ease-out infinite;
+  transition: 2s ease-out;
+}
+
+.message-buble.two{
+  animation-delay: .3s;
+}
+
+.message-buble.three{
+  animation-delay: .6s;
+}
+
+/* .buble-appear {
+  opacity: 1;
+  transform: translate(20px, 0px);
+}
+
+.buble-appear.buble-appear-active {
+  opacity: 1;
+  transform: translate(100px, 0px);
+  transition: 2s ease-in;
+} */
+
+@keyframes buble {
+  0% {transform:translateY(0px)}
+  1% {transform:translateY(0.1px)}
+  2% {transform:translateY(0.2px)}  
+  48% {transform: translateY(8.8px)}
+  49% {transform: translateY(8.9px)}
+  50% {transform:translateY(9px)}
+  51% {transform: translateY(8.9px)}
+  52% {transform:translateY(8.8px)}
+  98% {transfrom: translateY(0.2px)}
+  99% {transform: translateY(0.1px)}
+  100%{transform: translateY(0px)}
+}
+
+
+.messages-appear {
+    opacity: 0;
+    transform: translateY(10px);
+    max-height: 30px;
+    transition: all 0.8s ease-in-out;
+  }
+.messages-appear.messages-appear-active {
+  opacity: 1;
+  transform: translateY(0px);
+  max-height: 100px;
+}
+
+.message-container{
+  width: 300px;
+  position: relative;
+  display: inline-block;
+}
+
+.answer-type{
+  width: 100%;
+  /* height: 50px; */
+  background-color: #f5f5f5;
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+}
+
+.button-wrapper{
+    flex: 1;
+    display: flex;
+    height: 50px;
+}
+
+.button{
+  width: 100%;
+  background-color: #f5f5f5;
+  border: 1px solid #d4d4d4;
+  color: #555;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.checkboxes-container{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.checkboxes-wrapper{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: left;
+}
+
+.checkboxes-wrapper label{
+  display: flex;
+  align-items: center;
+  padding: 10px 0 10px 0;
+  text-transform: uppercase;
+  color: #444;
+  border-top: 1px solid #d4d4d4;
+  width: 100%;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.rc-checkbox-inner, .checkbox input{
+  width: 20px !important;
+  height: 20px !important;
+}
+/* 
+.rc-checkbox-inner {
+  border-color: #f63d8a;
+  background-color: #f63d8a;
+} */
+
+.rc-checkbox-inner::after{
+  top: 3px !important;
+  left: 6px !important;
+}
+
+.checkbox{
+  margin: 0 10px 0 10px;
+
+}
+
+.checkbox-send{
+  background-color: #f5f5f5;
+  height: 50px;
+  border: none;
+  border-top: 1px solid #d4d4d4;
+  text-transform: uppercase;
+  color: #555;
+  font-weight: bold;
+}
+
+.datepicker-container{
+  width: 100%;
+}
+.datepicker-wrapper{
+  height: 208px;
+}
+
+.datepicker-wheel{
+  border-top: 2px solid #f63d8a !important;
+  border-bottom: 2px solid #f63d8a !important;
+}
+
+.datepicker-navbar{
+  top: 100% !important;
+  height: 50px !important;
+  border: none !important;
+}
+
+.datepicker.ios .datepicker-navbar-btn {
+  height: 50px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0px !important;
+  padding-top: 9px !important;
+  background-color: #f5f5f5;
+  height: 50px !important;
+  text-transform: uppercase;
+  color: #555 !important;
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.datepicker.ios .datepicker-navbar-btn:nth-child(2){
+  display: none !important;
+}
+
+
+.datepicker-content{
+  padding-top: 0px !important;
+}
+.datepicker.ios{
+  margin-bottom: 50px;
+  background-color: white !important;
+}
+
+.datepicker.ios .datepicker-viewport::after {
+      background: -webkit-gradient(linear,left top, left bottom,from(#fff),color-stop(52%, rgba(245, 245, 245, 0)),color-stop(48%, rgba(245, 245, 245, 0)),to(#fff)) !important;
+}
+.datepicker-choose{
+  background-color: #f5f5f5;
+  height: 50px;
+  border: none;
+  text-transform: uppercase;
+  color: #555;
+  font-weight: bold;
+  width: 100%;
+}
+
+.input-wrapper{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 50px;
+  display: flex;
+}
+#PlacesAutocomplete__root{
+  width: 94.5% !important;
+}
+#PlacesAutocomplete__root input{
+  display: inline-block;
+  width: 100%;
+  padding: 10px !important;
+  margin: 0 !important;
+  border: none !important;
+  height: 30px !important;
+  outline: none !important;
+  border: 1px solid #d4d4d4 !important;
+  font-size: 15px;
+  /* border-bottom: 1px solid #d4d4d4 !important; */
+}
+#PlacesAutocomplete__autocomplete-container{
+  width: 105.3% !important;
+  border: 1px solid #d4d4d4 !important;
+  top: -352% !important;  
+  height: 175px;
+  overflow-y: hidden;
+}
+#PlacesAutocomplete__autocomplete-container > div {
+  border-top: 1px solid #f7f7f7 !important;
+  font-size: 12px !important;
+  font-weight: bold;
+  color: #555;
+  text-align: left;
+}
+.input-button{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  font-size: 30px;
+  right: 15px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.request-wrapper{
+  padding: 20px;
+  transition: all .3s ease;
+  margin-bottom: 20px;
+}
+
+.request-wrapper h5{
+  text-transform: uppercase;
+  color: #555;
+  border-bottom: 0.2px solid #d4d4d4;
+  padding-bottom: 10px;
+  margin-bottom: 0;
+}
+
+.progress-block{
+  text-align: left;
+  margin-top: 20px;
+}
+.progress-p{
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #444;
+}
+.building{
+  opacity: 1;
+  display: flex;
+  justify-content: space-between;
+  transition: all 1s ease;
+}
+.rating{
+  margin-top: 20px;
+}
+
+.fa-star{
+  color: #f63d8a;
+  margin-top: 12px;
+}
+
+
+
+.processing-appear {
+    opacity: 0;
+    transform: translateY(10px);
+    max-height: 0px;
+    transition: all 0.8s ease-in-out;
+  }
+.processing-appear.processing-appear-active {
+  opacity: 1;
+  transform: translateY(0px);
+  max-height: 100px;
+}
